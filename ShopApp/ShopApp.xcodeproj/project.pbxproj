@@ -6,24 +6,9 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		272DAB542E7A127E004B0536 /* RxTest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272DAB512E7A127E004B0536 /* RxTest.xcframework */; };
-		272DAB552E7A127E004B0536 /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272DAB4F2E7A127E004B0536 /* RxRelay.xcframework */; };
-		272DAB562E7A127E004B0536 /* RxBlocking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272DAB4D2E7A127E004B0536 /* RxBlocking.xcframework */; };
-		272DAB572E7A127E004B0536 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272DAB502E7A127E004B0536 /* RxSwift.xcframework */; };
-		272DAB582E7A127E004B0536 /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272DAB4E2E7A127E004B0536 /* RxCocoa.xcframework */; };
-		53DBB3EB44B08F78C43A1792 /* Pods_ShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC68572E696D593F4BE1E9F /* Pods_ShopApp.framework */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		27279A3D2E7A0C4400E6AB49 /* ShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		272DAB4D2E7A127E004B0536 /* RxBlocking.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:272EB7D3H3:Shai Mishali"; lastKnownFileType = wrapper.xcframework; path = RxBlocking.xcframework; sourceTree = "<group>"; };
-		272DAB4E2E7A127E004B0536 /* RxCocoa.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:272EB7D3H3:Shai Mishali"; lastKnownFileType = wrapper.xcframework; path = RxCocoa.xcframework; sourceTree = "<group>"; };
-		272DAB4F2E7A127E004B0536 /* RxRelay.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:272EB7D3H3:Shai Mishali"; lastKnownFileType = wrapper.xcframework; path = RxRelay.xcframework; sourceTree = "<group>"; };
-		272DAB502E7A127E004B0536 /* RxSwift.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:272EB7D3H3:Shai Mishali"; lastKnownFileType = wrapper.xcframework; path = RxSwift.xcframework; sourceTree = "<group>"; };
-		272DAB512E7A127E004B0536 /* RxTest.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:272EB7D3H3:Shai Mishali"; lastKnownFileType = wrapper.xcframework; path = RxTest.xcframework; sourceTree = "<group>"; };
 		6A7D4A12B6ED0CA354C32265 /* Pods-ShopApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp.release.xcconfig"; path = "Target Support Files/Pods-ShopApp/Pods-ShopApp.release.xcconfig"; sourceTree = "<group>"; };
-		7CC68572E696D593F4BE1E9F /* Pods_ShopApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93F9C7A9A8D17B122BB5722 /* Pods-ShopApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp.debug.xcconfig"; path = "Target Support Files/Pods-ShopApp/Pods-ShopApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,12 +38,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				272DAB542E7A127E004B0536 /* RxTest.xcframework in Frameworks */,
-				272DAB552E7A127E004B0536 /* RxRelay.xcframework in Frameworks */,
-				272DAB562E7A127E004B0536 /* RxBlocking.xcframework in Frameworks */,
-				272DAB572E7A127E004B0536 /* RxSwift.xcframework in Frameworks */,
-				272DAB582E7A127E004B0536 /* RxCocoa.xcframework in Frameworks */,
-				53DBB3EB44B08F78C43A1792 /* Pods_ShopApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +48,6 @@
 			isa = PBXGroup;
 			children = (
 				27279A3F2E7A0C4400E6AB49 /* ShopApp */,
-				272DAB532E7A127E004B0536 /* Frameworks */,
 				27279A3E2E7A0C4400E6AB49 /* Products */,
 				7A095294D638322F9CCD2E07 /* Pods */,
 			);
@@ -83,34 +61,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		272DAB522E7A127E004B0536 /* RxSwift */ = {
-			isa = PBXGroup;
-			children = (
-				272DAB4D2E7A127E004B0536 /* RxBlocking.xcframework */,
-				272DAB4E2E7A127E004B0536 /* RxCocoa.xcframework */,
-				272DAB4F2E7A127E004B0536 /* RxRelay.xcframework */,
-				272DAB502E7A127E004B0536 /* RxSwift.xcframework */,
-				272DAB512E7A127E004B0536 /* RxTest.xcframework */,
-			);
-			path = RxSwift;
-			sourceTree = "<group>";
-		};
-		272DAB532E7A127E004B0536 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				272DAB522E7A127E004B0536 /* RxSwift */,
-				7CC68572E696D593F4BE1E9F /* Pods_ShopApp.framework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 		7A095294D638322F9CCD2E07 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				C93F9C7A9A8D17B122BB5722 /* Pods-ShopApp.debug.xcconfig */,
 				6A7D4A12B6ED0CA354C32265 /* Pods-ShopApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -214,9 +170,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ShopApp/Pods-ShopApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ShopApp/Pods-ShopApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
