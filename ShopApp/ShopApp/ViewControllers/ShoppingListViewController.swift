@@ -12,6 +12,10 @@ import RxCocoa
 
 class ShoppingListViewController: UIViewController {
     
+    private struct Localizables {
+        static let productCellIdent = "ShoppingListTableViewCellIdentifier"
+    }
+    
     private let disposeBag = DisposeBag()
     
     private let viewModel: ShoppingListViewModel
@@ -46,12 +50,20 @@ class ShoppingListViewController: UIViewController {
         productsLabel.text = "Available Products"
         productsLabel.font = .preferredFont(forTextStyle: .title2)
         
-        productsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ProductCell")
+        productsTableView.rowHeight = 80
+        productsTableView.separatorStyle = .none
+        productsTableView.translatesAutoresizingMaskIntoConstraints = false
+        productsTableView.register(ShoppingListTableViewCell.self, forCellReuseIdentifier: Localizables.productCellIdent)
         
         basketLabel.text = "Shopping Basket"
         basketLabel.font = .preferredFont(forTextStyle: .title2)
         
-        basketTableView.register(UITableViewCell.self, forCellReuseIdentifier: "BasketCell")
+        basketTableView.rowHeight = 80
+        basketTableView.layer.borderWidth = 1
+        basketTableView.layer.cornerRadius = 8
+        basketTableView.separatorStyle = .none
+        basketTableView.layer.borderColor = UIColor.lightGray.cgColor
+        basketTableView.register(ShoppingListTableViewCell.self, forCellReuseIdentifier: Localizables.productCellIdent)
         
         totalCostLabel.font = .preferredFont(forTextStyle: .headline)
         
@@ -81,19 +93,34 @@ class ShoppingListViewController: UIViewController {
     
     private func bind() {
         viewModel.availableProducts
-            .bind(to: productsTableView.rx.items(cellIdentifier: "ProductCell")) { _, product, cell in
-                cell.textLabel?.text = "\(product.name) - $\(String(format: "%.2f", product.price))"
+            .bind(to: productsTableView.rx.items(cellIdentifier: Localizables.productCellIdent, cellType: ShoppingListTableViewCell.self)) { (_, product, cell) in
+                cell.productNameLabel.text = product.name
+                cell.productImageView.image = product.image
+                cell.priceLabel.text = String(format: "$%.2f", product.price)
+                
+                cell.addButton.rx.tap
+                    .map { product }
+                    .bind(to: self.viewModel.addProduct)
+                    .disposed(by: cell.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.basketItems
+            .bind(to: basketTableView.rx.items(cellIdentifier: Localizables.productCellIdent, cellType: ShoppingListTableViewCell.self)) { (_, product, cell) in
+                cell.productNameLabel.text = product.name
+                cell.productImageView.image = product.image
+                cell.addButton.setTitle("Remove", for: .normal)
+                cell.priceLabel.text = String(format: "$%.2f", product.price)
+                
+                cell.addButton.rx.tap
+                    .map { product }
+                    .bind(to: self.viewModel.removeProduct)
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
         
         productsTableView.rx.modelSelected(Product.self)
             .bind(to: viewModel.addProduct)
-            .disposed(by: disposeBag)
-        
-        viewModel.basketItems
-            .bind(to: basketTableView.rx.items(cellIdentifier: "BasketCell")) { _, product, cell in
-                cell.textLabel?.text = "\(product.name) - $\(String(format: "%.2f", product.price))"
-            }
             .disposed(by: disposeBag)
         
         basketTableView.rx.modelSelected(Product.self)
